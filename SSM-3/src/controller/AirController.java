@@ -37,6 +37,7 @@ public class AirController {
 		if (indexpage < 1) {
 			return "index.jsp";
 		} else {
+			System.out.println("ssssssss");
 			int page = (indexpage - 1) * 3;
 			List<Air> all = as.getAll(page, 3);
 			request.getSession().setAttribute("all", all);
