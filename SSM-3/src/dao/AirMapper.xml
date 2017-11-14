@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.AirMapper">
+	
+	<select id="getAll" resultType="Air">
+	SELECT * from air a INNER JOIN district d 
+	ON(a.districtid=d.did) ORDER BY a.id LIMIT #{a},#{b}
+	</select>
+	
+	<select id="getAlldid" resultType="Air">
+	SELECT * FROM district
+	</select>
+<insert id="insert"  parameterType="Air">
+insert into Air (districtid,monitor,pm10,pm25,monitoring)
+VALUES(#{districtid},#{monitor},#{pm10},#{pm25},#{monitoring})
+</insert> 
+<select id="count" resultType="int">
+select count(*) from air
+</select>
+</mapper>
